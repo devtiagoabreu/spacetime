@@ -1,0 +1,10 @@
+npm init -y
+npm i typescript -D
+npm i @types/node -D
+npx tsc --init
+npm i tsx -D
+npm i fastify
+Rodar projeto
+npm run dev
+
+
