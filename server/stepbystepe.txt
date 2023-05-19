@@ -1,3 +1,4 @@
+criando projeto e configurando o backend
 npm init -y
 npm i typescript -D
 npm i @types/node -D
@@ -6,5 +7,13 @@ npm i tsx -D
 npm i fastify
 Rodar projeto
 npm run dev
+npm i eslint -D
+npm i @rocketseat/eslint-config -D
+npm i prisma -D
+npx prisma init --datasource-provider SQLite
+npx prisma migrate dev
+npx prisma studio
+npm i @prisma/client
 
-
+criando projeto e configurando o frontend web
+npx create-next-app@latest web --use-npm
