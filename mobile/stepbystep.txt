@@ -1,0 +1,7 @@
+npx create-expo-app mobile
+npm i nativewind
+npm i tailwindcss -D
+npx tailwindcss init
+npm run start
+npm i eslint @rocketseat/eslint-config -D
+npm i prettier-plugin-tailwindcss -D
