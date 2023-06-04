@@ -13,8 +13,8 @@ const baiJamjuree = BaiJamjuree({
 })
 
 export const metadata = {
-  title: 'devTiagoAbreu',
-  description: 'Blog devTiagoAbreu',
+  title: 'devSpeech',
+  description: 'Blog de desenvolvedores',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
