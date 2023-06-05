@@ -15,5 +15,24 @@ npx prisma migrate dev
 npx prisma studio
 npm i @prisma/client
 
+Resetando o banco de dados pois ouveram alterações na estrutura das tabelas
+npx prisma migrate reset
+npx prisma migrate dev
+
+abrir o prisma studio
+npx prisma studio
+
+obs: cada alteração no arquivo "schema.prisma", preciso executar:
+
+npx prisma generate
+E também gerar a migração com
+npx prisma migrate dev --name name_of_stuff
+
+npm i zod
+
+npm i @fastify/cors
+
+
+
 criando projeto e configurando o frontend web
 npx create-next-app@latest web --use-npm

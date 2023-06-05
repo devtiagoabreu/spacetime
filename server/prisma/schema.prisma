@@ -8,6 +8,78 @@ datasource db {
 }
 
 model User {
-  id   String @id @default(uuid())
-  name String
+  id            String   @id @default(uuid())
+  githubId      Int?     @unique
+  googleId      Int?     @unique
+  planId        String   @default("cf6d82eb-315e-4c89-96b2-55a26ce7428a")
+  planStartDate DateTime @default(now())
+  planEndDate   DateTime @default(now())
+  name          String
+  email         String
+  pass          String
+  login         String
+  googleEmail   String
+  avatarUrl     String
+  isActive      Boolean  @default(true)
+  plan          Plan     @relation(fields: [planId], references: [id])
+  memories      Memory[]
+}
+
+model Plan {
+  id           String     @id @default(uuid())
+  description  String
+  numberTokens Int
+  numberLinks  Int
+  price        Decimal
+  isActive     Boolean    @default(true)
+  User         User[]
+  PlanType     PlanType[]
+}
+
+model PlanType {
+  id          String   @id @default(uuid())
+  planId      String
+  description String
+  isActive    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  plan        Plan     @relation(fields: [planId], references: [id])
+}
+
+model Memory {
+  id          String   @id @default(uuid())
+  userId      String
+  coverUrl    String
+  videoUrl    String
+  audioUrl    String
+  title       String
+  slug        String
+  token       String   @unique
+  description String
+  content     String
+  isPublic    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id])
+  links       Link[]
+  Token       Token[]
+}
+
+model Link {
+  id          String   @id @default(uuid())
+  memoryId    String
+  description String
+  url         String
+  content     String
+  position    Int
+  isPublic    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  memory      Memory   @relation(fields: [memoryId], references: [id])
+}
+
+model Token {
+  id        String   @id @default(uuid())
+  tag       String   @unique
+  memoryId  String   @unique
+  isActive  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  memory    Memory   @relation(fields: [memoryId], references: [id])
 }
