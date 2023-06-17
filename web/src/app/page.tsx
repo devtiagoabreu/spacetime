@@ -1,6 +1,7 @@
-import { User } from 'lucide-react'
-import Image from 'next/image'
-import devSpeechLogo from '../assets/logotipo_devspeech.svg'
+import { Copyright } from '@/components/Copyright'
+import { EmptyMemories } from '@/components/EmptyMemories'
+import { Hero } from '@/components/Hero'
+import { Sigin } from '@/components/Sigin'
 
 export default function Home() {
   return (
@@ -11,62 +12,13 @@ export default function Home() {
         <div className="absolute right-0 top-1/2 h-[288px] w-[526px] -translate-y-1/2 translate-x-1/2 rounded-full bg-purple-700 opacity-50 blur-full " />
         {/* STRIPES */}
         <div className="absolute bottom-0 right-2 top-0 w-2 bg-stripes" />
-        {/* SIGN IN */}
-        <a
-          href={`https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID}`}
-          className="flex items-center gap-3 text-left transition-colors hover:text-gray-50"
-        >
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-400">
-            <User className="h-5 w-5 text-gray-500" />
-          </div>
-          <p className="max-w-[140px] text-sm leading-snug">
-            <span className="underline">Crie sua conta</span> e faça suas
-            postagens!
-          </p>
-        </a>
-        {/* HERO */}
-        <div className="space-y-5">
-          <Image src={devSpeechLogo} alt="devSpeeck" />
-          <div className="max-w-[420px] space-y-1">
-            <h1 className="text-5xl font-bold leading-tight text-gray-50">
-              Discurse
-            </h1>
-            <p className="text-lg leading-relaxed">
-              Compartilhe com o mundo sua experiência pessoal e profissional
-              como desenvolvedor
-            </p>
-          </div>
-          <a
-            className="inline-block rounded-full bg-green-500 px-5 py-3 font-alt text-sm uppercase leading-none text-black transition-colors hover:bg-green-600"
-            href=""
-          >
-            INICIAR UM DISCURSO
-          </a>
-        </div>
-        {/* COPYRIGHT */}
-        <div className="text-sm leading-relaxed text-gray-200">
-          Feito com 💜 pela{' '}
-          <a
-            className="underline transition-colors hover:text-gray-100"
-            href="http>//atriostech.com.br"
-            target="_black"
-            rel="noreferrer"
-          >
-            AtriosTech
-          </a>
-        </div>
+        <Sigin />
+        <Hero />
+        <Copyright />
       </div>
-
       {/* HIGHT */}
       <div className="flex flex-col bg-[url(../assets/bg-stars.svg)] bg-cover p-16">
-        <div className="flex flex-1 items-center justify-center">
-          <p className="w-[360px] text-center leading-relaxed">
-            Você ainda não publicou nenhum post no blog, {'    '}
-            <a href="" className="undeline hover:text-gray-50">
-              publicar agora!
-            </a>
-          </p>
-        </div>
+        <EmptyMemories />
       </div>
     </main>
   )
