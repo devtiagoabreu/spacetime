@@ -32,6 +32,15 @@ npm i zod
 
 npm i @fastify/cors
 
+npm i dotenv -D
+
+npm i axios
+
+npm i @fastify/jwt
+
+
+
+
 
 
 criando projeto e configurando o frontend web
