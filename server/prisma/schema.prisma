@@ -9,19 +9,16 @@ datasource db {
 
 model User {
   id            String   @id @default(uuid())
-  githubId      Int?     @unique
-  googleId      Int?     @unique
+  githubId      Int      @unique
   planId        String   @default("cf6d82eb-315e-4c89-96b2-55a26ce7428a")
   planStartDate DateTime @default(now())
   planEndDate   DateTime @default(now())
-  name          String
-  email         String
-  pass          String
-  login         String
-  googleEmail   String
-  avatarUrl     String
+  name          String?  @default("")
+  email         String?  @default("")
+  pass          String?  @default("")
+  login         String?  @default("")
+  avatarUrl     String?  @default("")
   isActive      Boolean  @default(true)
-  plan          Plan     @relation(fields: [planId], references: [id])
   memories      Memory[]
 }
 
@@ -32,7 +29,6 @@ model Plan {
   numberLinks  Int
   price        Decimal
   isActive     Boolean    @default(true)
-  User         User[]
   PlanType     PlanType[]
 }
 

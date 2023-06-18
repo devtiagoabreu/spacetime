@@ -38,7 +38,11 @@ npm i axios
 
 npm i @fastify/jwt
 
-
+neste ponto encontrei um erro, não estava conseguindo acessar o banco de dados
+via requisições http (get,post,etc...)
+executei este comando para resolver
+npx prisma generate
+Isso restabelecerá o link entre schema.prisma e arquivo .env.
 
 
 
